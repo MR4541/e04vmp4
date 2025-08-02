@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W記憶追索 · 第一關</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: "Courier New", monospace;
+      background-color: #0d1b2a;
+      color: #e0e1dd;
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-6">
+
+  <div class="max-w-3xl w-full bg-[#1b263b] p-8 rounded-2xl shadow-lg fade-in">
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-[#00ffcc] text-center">來自地球圖書館的留言</h1>
+
+    <div class="text-gray-200 space-y-4 text-lg leading-relaxed tracking-wide">
+      <p>探員們：</p>
+
+      <p>記憶仍在深層意識中沉睡，而通往它的路徑，需要你們——有著敏銳直覺與不懈邏輯的追蹤者——來一一挖掘。</p>
+
+      <p>各位有看到房間角落的行李箱吧？<br>
+        我還記得那是某次案件，翔太郎留下的一只行李箱。<br>
+        奇怪的是，他將箱子放下時，一直緊盯著手錶，手指在表面敲動得異常頻繁。
+        </p>
+
+      <p>他向來不是時間觀念嚴謹的人。<br>
+        那股慌張並不尋常。我可以感覺得到。<br>
+        可惜我當時並未特別留心，不然或許就不會發生現在這種事情...<br>
+        現在——<br>
+        請將這些「時間的碎片」拼湊起來，帶我找回那遺失的片段。<br>
+        翔太郎究竟留下了什麼？
+        </p>
+
+      <p class="text-right">——Philip</p>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center">
+      <input id="answerInput" 
+             type="text" 
+             maxlength="4" 
+             placeholder="請輸入 4 位數代碼" 
+             class="w-64 text-center p-3 rounded-lg text-black font-bold text-lg tracking-widest mb-4"
+             oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+
+      <button onclick="checkAnswer()"
+              class="bg-[#00ffcc] hover:bg-[#00d6b8] text-gray-900 font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-lg">
+        提交代碼
+      </button>
+
+      <p id="errorMessage" class="mt-4 text-red-400 font-semibold hidden">代碼錯誤。請再次檢查記憶碎片。</p>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("answerInput").value;
+      const errorMsg = document.getElementById("errorMessage");
+
+      if (input === "1234") {
+        window.location.href = "./philip_3.html";
+      } else {
+        errorMsg.classList.remove("hidden");
+      }
+    }
+  </script>
+
+</body>
+</html>

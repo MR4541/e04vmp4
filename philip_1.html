@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W記憶追索 · 第一關</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: "Courier New", monospace;
+      background-color: #0d1b2a;
+      color: #e0e1dd;
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-6">
+
+  <div class="max-w-3xl w-full bg-[#1b263b] p-8 rounded-2xl shadow-lg fade-in">
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-[#00ffcc] text-center">來自地球圖書館的留言</h1>
+
+    <div class="text-gray-200 space-y-4 text-lg leading-relaxed tracking-wide">
+      <p>探員們：</p>
+
+      <p>嗨。被選中的各位。我是菲利普，左翔太郎的夥伴，假面騎士W的右半身。<br>
+      我可以連結地球圖書館，查詢地球所有記憶與知識。</p>
+
+      <p>如你們所見，我不在偵探事務所。<br>
+      看到門口的靈體了嗎？似乎是他的力量，讓我和翔太郎消失在這個世界上。</p>
+
+      <p>但是，地球圖書館的部分資料遭到竄改。<br>
+      我原本認為記憶是不會「消失」的，只會被掩埋或加密。但這次——我無法再從地球圖書館中搜尋到某些我明明知道存在過的記憶片段。</p>
+
+      <p><strong>這不是自然遺失。這是某種意志性的抹除行為。</strong><br>
+      我認為，這或許和消失的記憶體有關。</p>
+
+      <p>我已封存一段可疑記憶的座標，代號為 <span class="text-[#00d6b8] font-mono">WAAQTUEAR</span>，這也是你們的第一個案件。</p>
+
+      <p>在這封信封內，你們會發現一些道具。<br>
+      這些物品是由翔太郎取回的，在我解析其用途之前，我和翔太郎的肉體就消失了。<br>
+      也許，你們能從中看見其他線索。</p>
+
+      <p class="italic">記住：<br>
+      真相，不一定永遠都在最深處。</p>
+
+      <p class="text-right">——Philip</p>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center">
+      <input id="answerInput" 
+             type="text" 
+             maxlength="4" 
+             placeholder="請輸入 4 位數代碼" 
+             class="w-64 text-center p-3 rounded-lg text-black font-bold text-lg tracking-widest mb-4"
+             oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+
+      <button onclick="checkAnswer()"
+              class="bg-[#00ffcc] hover:bg-[#00d6b8] text-gray-900 font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-lg">
+        提交代碼
+      </button>
+
+      <p id="errorMessage" class="mt-4 text-red-400 font-semibold hidden">代碼錯誤。請再次檢查記憶碎片。</p>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("answerInput").value;
+      const errorMsg = document.getElementById("errorMessage");
+
+      if (input === "1234") {
+        // 👉 替換成你第二關的頁面路徑
+        window.location.href = "./philip_2.html";
+      } else {
+        errorMsg.classList.remove("hidden");
+      }
+    }
+  </script>
+
+</body>
+</html>

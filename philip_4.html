@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W記憶追索 · 第一關</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: "Courier New", monospace;
+      background-color: #0d1b2a;
+      color: #e0e1dd;
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-6">
+
+  <div class="max-w-3xl w-full bg-[#1b263b] p-8 rounded-2xl shadow-lg fade-in">
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-[#00ffcc] text-center">來自地球圖書館的留言</h1>
+
+    <div class="text-gray-200 space-y-4 text-lg leading-relaxed tracking-wide">
+    
+        <p>你們手中的文章，是我從圖書館系統中撈出的片段資料。</p>
+            <p>它曾隱藏在一份舊檔案的末尾，顯然經過某種處理。大多數人會以為那只是格式錯亂，但你們應該比大多數人更敏銳。</p>
+            <p>而那幾串亂碼——並不真的是亂碼。</p>
+            <p>它們的分布頻率、字元與規律，都說明了一件事：這是一組經過特定機制隱藏訊息的語言單位。</p>
+            <p>簡單來說，這一關考驗的不是純粹的對照，而是你們能否在雜訊中找到文字的邏輯骨架。</p>
+            <p>靈體又開始躁動了。是什麼影響了他？</p>
+            
+
+      <p class="text-right">——Philip</p>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center">
+      <input id="answerInput" 
+             type="text" 
+             maxlength="4" 
+             placeholder="請輸入 4 位數代碼" 
+             class="w-64 text-center p-3 rounded-lg text-black font-bold text-lg tracking-widest mb-4"
+             oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+
+      <button onclick="checkAnswer()"
+              class="bg-[#00ffcc] hover:bg-[#00d6b8] text-gray-900 font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-lg">
+        提交代碼
+      </button>
+
+      <p id="errorMessage" class="mt-4 text-red-400 font-semibold hidden">代碼錯誤。請再次檢查記憶碎片。</p>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("answerInput").value;
+      const errorMsg = document.getElementById("errorMessage");
+
+      if (input === "1234") {
+        // 👉 替換成你第二關的頁面路徑
+        window.location.href = "./philip_1.html";
+      } else {
+        errorMsg.classList.remove("hidden");
+      }
+    }
+  </script>
+
+</body>
+</html>

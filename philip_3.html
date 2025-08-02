@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W記憶追索 · 第一關</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: "Courier New", monospace;
+      background-color: #0d1b2a;
+      color: #e0e1dd;
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-6">
+
+  <div class="max-w-3xl w-full bg-[#1b263b] p-8 rounded-2xl shadow-lg fade-in">
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-[#00ffcc] text-center">來自地球圖書館的留言</h1>
+
+    <div class="text-gray-200 space-y-4 text-lg leading-relaxed tracking-wide">
+    
+        <p>🦐……….🐊<br>
+            🦐…🐊<br>
+            🦐🐊<br>
+            啊啊啊啊啊蝦子要被鱷魚吃掉了
+            </p>
+        
+            <p>謝謝<br>
+                但我要哭了<br>
+                然後為什麼不是鱷魚要被蝦子吃掉了</p>
+
+        <p>探員們：</p>
+
+      <p>看來你們已經取得那枚與熱能反應有關的 Heat 記憶體（Heat Memory）。老實說，進度比我預期的快。這是好事。</p>
+
+      <p>第三案的相關資料，我已經封裝整理好，放入你們手中的信封袋中。
+        </p>
+
+        <p>至於 Stag Phone……不確定它最後落在了哪裡。我推測可能是翔太郎消失時遺失了。不過，暫時不構成阻礙。</p>
+
+      <p>根據目前的線索分析，這一案的最終解法，將需要你們留意一項被日常忽視的工具——手機按鍵。
+        </p>
+
+        <p>每個數字，都藏有語言的碎片。<br>
+            那些字母，會告訴你們正確的方向。
+            </p>
+
+            <p>挺有趣的不是嗎？</p>
+
+      <p class="text-right">——Philip</p>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center">
+      <input id="answerInput" 
+             type="text" 
+             maxlength="4" 
+             placeholder="請輸入 4 位數代碼" 
+             class="w-64 text-center p-3 rounded-lg text-black font-bold text-lg tracking-widest mb-4"
+             oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+
+      <button onclick="checkAnswer()"
+              class="bg-[#00ffcc] hover:bg-[#00d6b8] text-gray-900 font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-lg">
+        提交代碼
+      </button>
+
+      <p id="errorMessage" class="mt-4 text-red-400 font-semibold hidden">代碼錯誤。請再次檢查記憶碎片。</p>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("answerInput").value;
+      const errorMsg = document.getElementById("errorMessage");
+
+      if (input === "1234") {
+        // 👉 替換成你第二關的頁面路徑
+        window.location.href = "./philip_4.html";
+      } else {
+        errorMsg.classList.remove("hidden");
+      }
+    }
+  </script>
+
+</body>
+</html>
